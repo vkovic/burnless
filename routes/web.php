@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\PlayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,10 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/first', [PlayController::class, 'first'])->name('first');
+Route::get('/second', [PlayController::class, 'second'])->name('second');
+Route::any('/smilies', [PlayController::class, 'smilies'])->name('smilies');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
