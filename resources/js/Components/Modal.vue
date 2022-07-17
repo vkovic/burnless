@@ -1,57 +1,56 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
 <template>
 
-    <Dialog as="div" class="relative z-10" :open="open">
-
+    <div ref="dialogPanel" class="relative z-10">
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-
         <div class="fixed z-10 inset-0 overflow-y-auto">
-
-            <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
-
-                <DialogPanel class="relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl sm:my-8 sm:max-w-lg sm:w-full sm:p-6">
-
-                    <iframe :src="link"></iframe>
-
-                </DialogPanel>
-
+            <div class="flex items-center justify-center min-h-full text-center">
+                <div
+                    style="min-width: 640px"
+                    class="relative bg-white rounded-lg overflow-hidden shadow-xl"
+                >
+                    <iframe ref="frame" :src="link" />
+                </div>
             </div>
         </div>
-    </Dialog>
+    </div>
 
 </template>
 
 <script setup lang="ts">
-    import { onMounted, ref, defineEmits } from 'vue';
-    import {
-        Dialog,
-        DialogPanel,
-        DialogTitle,
-        DialogDescription,
-    } from '@headlessui/vue';
+
+    import { onMounted, ref } from 'vue';
 
     const props = defineProps({
         link: String
     });
 
     const emit = defineEmits([
-        'qwe'
+        'confirmed'
     ]);
 
     const open = ref(true);
-
-    const receiveMessage = (event) => {
-        console.log('log event instead of this');
-        //console.log('')
-    };
+    const frame = ref(null);
 
     onMounted(() => {
         window.addEventListener('message', (e) => {
-            emit('qwe', e.data);
+            //
+            // Filter only events we want to listen
+            //
+            if (e.data.location) {
+                // Emit confirmed so we can close the modal
+                emit('confirmed', e.data);
+            } else if (e.data.height) {
+                // Set iframe height to resize modal with actual content
+                frame.value.style.height = e.data.height + 'px';
+            }
         });
     });
-
-
-
-
 </script>
+
+<style scoped>
+
+    iframe {
+        width: 100%;
+    }
+
+</style>

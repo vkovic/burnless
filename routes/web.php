@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\PlayController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\PlayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +25,10 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/first', [PlayController::class, 'first'])->name('first');
+Route::get('/preview/{template}', [PlayController::class, 'preview'])->name('preview');
 Route::get('/second', [PlayController::class, 'second'])->name('second');
 Route::any('/smilies', [PlayController::class, 'smilies'])->name('smilies');
+Route::any('/quote', [PlayController::class, 'quote'])->name('quote');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

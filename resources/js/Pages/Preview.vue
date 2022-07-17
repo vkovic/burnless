@@ -1,15 +1,15 @@
 <template>
 
-    <h1>NOT IFRAME</h1>
+    <h1 class="text-lg">Preview for the iframe</h1>
 
     <button
-        @click="show = !show"
+        @click="show = true"
         class="p-4 bg-purple-400 text-white font-bold"
     >SHOW</button>
 
     <Modal
-        @qwe="handleQwe"
-        link="/smilies" v-if="show"
+        @confirmed="show = false"
+        :link="'/' + template" v-if="show"
     ></Modal>
 
 </template>
@@ -21,9 +21,8 @@
 
     const show: Ref<Boolean> = ref(false);
 
-    const handleQwe = (x) => {
-        console.log(x);
-        show.value = false;
-    };
+    defineProps({
+        template: String
+    });
 
 </script>

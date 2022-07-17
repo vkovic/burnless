@@ -7,9 +7,11 @@ use Inertia\Inertia;
 
 class PlayController extends Controller
 {
-    public function first()
+    public function preview($template)
     {
-        return Inertia::render('First');
+        return Inertia::render('Preview', [
+            'template' => $template
+        ]);
     }
 
     public function second()
@@ -25,5 +27,10 @@ class PlayController extends Controller
         }
 
         return Inertia::render('Smilies');
+    }
+
+    public function quote(Request $request)
+    {
+        return Inertia::render('Quote');
     }
 }
