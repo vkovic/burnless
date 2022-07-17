@@ -1,10 +1,11 @@
 <template>
-    <div class="bg-[url('https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg')]">
+    <div class="bg-[url('https://source.unsplash.com/random?nature')]">
         <Suspense>
             <blockquote
                 class="p-10 text-white"
             >
-                {{ quoteContent }}
+                <p class="text-xl">"{{ quote.content }}"</p>
+                <footer class="text-right pt-4 tracking-wider uppercase font-semibold">{{ quote.author}}</footer>
             </blockquote>
         </Suspense>
         <div class="flex justify-between">
@@ -16,12 +17,15 @@
 
 <script setup lang="ts">
 
-    import { nextTick, onMounted, Ref, ref } from 'vue';
+    import { nextTick, onMounted, Ref, ref, reactive } from 'vue';
 
     const show: Ref<Boolean> = ref(false);
     const scores: Array<Number> = [1, 2, 3, 4, 5];
-    const quoteContent: Ref<String> = ref('');
-    //const quoteAuthor: Ref<String> = ref('');
+
+    const quote = reactive({
+        content: '',
+        author: ''
+    });
 
     const handleClick = (score) => {
         window.parent.postMessage({
@@ -33,8 +37,8 @@
     onMounted(async () => {
         var resp = await axios.get('https://api.quotable.io/random');
 
-        // quoteAuthor.value = resp.data.author;
-        quoteContent.value = resp.data.content;
+        quote.content = resp.data.content;
+        quote.author = resp.data.author;
 
         await nextTick();
 

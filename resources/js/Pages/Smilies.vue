@@ -13,6 +13,7 @@
 <script setup lang="ts">
 
     import { ref, Ref } from 'vue';
+    import { Inertia } from '@inertiajs/inertia';
 
     const show: Ref<Boolean> = ref(false);
     const scores: Array<Number> = [1, 2, 3, 4, 5];
@@ -22,6 +23,8 @@
             'location': window.location.href,
             'score': score,
         }, "*");
+
+        Inertia.post(route('smilies'), {score});
     };
 
 </script>
