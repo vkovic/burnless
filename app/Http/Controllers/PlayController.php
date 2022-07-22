@@ -48,6 +48,13 @@ class PlayController extends Controller
 
     public function quote(Request $request)
     {
+        if ($request->isMethod('POST')) {
+
+            dump($request->all());
+
+            return redirect()->back();
+        }
+
         return Inertia::render('Quote');
     }
 }

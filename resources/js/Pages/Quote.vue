@@ -9,8 +9,8 @@
             </blockquote>
         </Suspense>
         <div class="flex justify-between">
-            <button class="px-2 py-3 bg-gray-300">Snooze</button>
-            <button @click="handleClickOk" class="px-2 py-3 bg-indigo-300">Ok</button>
+            <button @click="handleSnooze" class="px-2 py-3 bg-gray-300">Snooze</button>
+            <button @click="handleOk" class="px-2 py-3 bg-indigo-300">Ok</button>
         </div>
     </div>
 </template>
@@ -18,21 +18,12 @@
 <script setup lang="ts">
 
     import { nextTick, onMounted, Ref, ref, reactive } from 'vue';
-
-    const show: Ref<Boolean> = ref(false);
-    const scores: Array<Number> = [1, 2, 3, 4, 5];
+    import { Inertia } from '@inertiajs/inertia';
 
     const quote = reactive({
         content: '',
         author: ''
     });
-
-    const handleClick = (score) => {
-        window.parent.postMessage({
-            'location': window.location.href,
-            'score': score
-        }, '*');
-    };
 
     onMounted(async () => {
         var resp = await axios.get('https://api.quotable.io/random');
@@ -48,10 +39,22 @@
 
     });
 
-    const handleClickOk = () => {
+    const handleOk = () => {
         window.parent.postMessage({
-            'location': window.location.href
+            'location': window.location.href,
+            'clicked': 'OK'
         }, '*');
+
+        Inertia.post(route('quote'), {clicked: 'OK'});
+    };
+
+    const handleSnooze = () => {
+        window.parent.postMessage({
+            'location': window.location.href,
+            'clicked': 'SNOOZE'
+        }, '*');
+
+        Inertia.post(route('quote'), {clicked: 'SNOOZE'});
     };
 
 </script>
