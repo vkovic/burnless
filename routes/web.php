@@ -25,6 +25,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('burnless', function () {
+    return redirect('/burnless-client/index.html');
+});
+
 Route::get('/preview/{template}', [PlayController::class, 'preview'])->name('preview');
 Route::get('/second', [PlayController::class, 'second'])->name('second');
 Route::any('/smilies', [PlayController::class, 'smilies'])->name('smilies');
