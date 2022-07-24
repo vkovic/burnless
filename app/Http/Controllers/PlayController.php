@@ -12,7 +12,7 @@ class PlayController extends Controller
     public function preview($template)
     {
         return Inertia::render('Preview', [
-            'template' => $template
+            'template' => $template,
         ]);
     }
 
@@ -37,7 +37,7 @@ class PlayController extends Controller
 
             Score::updateOrCreate(['session_id' => Session::getId()], [
                 'type' => $request->route()->getName(),
-                'score' => $request->input('score')
+                'score' => $request->input('score'),
             ]);
 
             return redirect()->back();
@@ -49,7 +49,6 @@ class PlayController extends Controller
     public function quote(Request $request)
     {
         if ($request->isMethod('POST')) {
-
             dump($request->all());
 
             return redirect()->back();
