@@ -49,7 +49,12 @@ class PlayController extends Controller
     public function quote(Request $request)
     {
         if ($request->isMethod('POST')) {
-            dump($request->all());
+
+            Score::create([
+                'session_id' => Session::getId(),
+                'type' => 'todo',
+                'score' => 33,
+            ]);
 
             return redirect()->back();
         }

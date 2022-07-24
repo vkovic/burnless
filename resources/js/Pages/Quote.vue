@@ -17,8 +17,9 @@
 
 <script setup lang="ts">
 
-    import { nextTick, onMounted, Ref, ref, reactive } from 'vue';
-    import { Inertia } from '@inertiajs/inertia';
+    import { nextTick, onMounted, reactive } from 'vue';
+    import { emitAbroad } from '@/Composables/useEmitAbroad';
+    import axios from 'axios';
 
     const quote = reactive({
         content: '',
@@ -33,28 +34,23 @@
 
         await nextTick();
 
-        window.parent.postMessage({
-            'height': window.document.body.scrollHeight
-        }, '*');
-
+        emitAbroad({height: window.document.body.scrollHeight});
     });
 
-    const handleOk = () => {
-        window.parent.postMessage({
-            'location': window.location.href,
-            'clicked': 'OK'
-        }, '*');
+    const handleOk = async () => {
+        const data = {clicked: 'OK'};
 
-        Inertia.post(route('quote'), {clicked: 'OK'});
+        await axios.post(route('quote', data));
+
+        emitAbroad(data);
     };
 
-    const handleSnooze = () => {
-        window.parent.postMessage({
-            'location': window.location.href,
-            'clicked': 'SNOOZE'
-        }, '*');
+    const handleSnooze = async () => {
+        const data = {clicked: 'SNOOZE'};
 
-        Inertia.post(route('quote'), {clicked: 'SNOOZE'});
+        await axios.post(route('quote', data));
+
+        emitAbroad(data);
     };
 
 </script>
