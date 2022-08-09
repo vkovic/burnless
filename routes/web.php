@@ -25,6 +25,8 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/go', [PlayController::class, 'go']);
+
 Route::get('burnless', function () {
     return redirect('/burnless-client/index.html');
 });

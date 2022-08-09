@@ -16,6 +16,23 @@ class PlayController extends Controller
         ]);
     }
 
+    public function go()
+    {
+        $sid = Session::getId();
+
+        $lastScore = Score::where('session_id', $sid)
+            ->where('created_at', '>=', today()->startOfDay())
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        if ($lastScore === null) {
+            return Inertia::render('Quote');
+        }
+
+        return Inertia::render('Smilies');
+
+    }
+
     public function second()
     {
         return Inertia::render('Second');
@@ -23,22 +40,24 @@ class PlayController extends Controller
 
     public function smilies(Request $request)
     {
-        $sessionId = Session::getId();
-
         if ($request->isMethod('POST')) {
-            // Regenerate session if it's not from today,
-            $lastScore = Score::where('session_id', $sessionId)
-                ->orderBy('created_at', 'desc')
-                ->first();
 
-            if ($lastScore !== null && $lastScore->created_at->endOfDay()->lt(now())) {
-                Session::regenerate();
+            $scoreExists = Score::where('session_id', Session::getId())
+                ->where('created_at', '>=', today()->startOfDay())
+                ->where('type', 'smilies')
+                ->exists();
+
+            if ($scoreExists) {
+                throw new \Exception('already voted');
             }
 
-            Score::updateOrCreate(['session_id' => Session::getId()], [
-                'type' => $request->route()->getName(),
+            Score::create([
+                'session_id' => Session::getId(),
+                'type' => 'smilies',
                 'score' => $request->input('score'),
             ]);
+
+            return;
 
             return redirect()->back();
         }
@@ -50,11 +69,22 @@ class PlayController extends Controller
     {
         if ($request->isMethod('POST')) {
 
+            $scoreExists = Score::where('session_id', Session::getId())
+                ->where('created_at', '>=', today()->startOfDay())
+                ->where('type', 'quote')
+                ->exists();
+
+            if ($scoreExists) {
+                throw new \Exception('already voted');
+            }
+
             Score::create([
                 'session_id' => Session::getId(),
-                'type' => 'todo',
-                'score' => 33,
+                'type' => 'quote',
+                'score' => 5,
             ]);
+
+            return;
 
             return redirect()->back();
         }

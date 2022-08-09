@@ -18,8 +18,9 @@
 <script setup lang="ts">
 
     import { nextTick, onMounted, reactive } from 'vue';
-    import { emitAbroad } from '@/Composables/useEmitAbroad';
+    import { emitAbroad } from '../Composables/useEmitAbroad';
     import axios from 'axios';
+    import { Inertia } from '@inertiajs/inertia';
 
     const quote = reactive({
         content: '',

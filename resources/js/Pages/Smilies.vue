@@ -14,17 +14,16 @@
 
     import { ref, Ref } from 'vue';
     import { Inertia } from '@inertiajs/inertia';
+    import axios from 'axios';
+    import { emitAbroad } from '../Composables/useEmitAbroad';
 
     const show: Ref<Boolean> = ref(false);
     const scores: Array<Number> = [1, 2, 3, 4, 5];
 
-    const handleClick = (score) => {
-        window.parent.postMessage({
-            'location': window.location.href,
-            'score': score,
-        }, "*");
+    const handleClick = async (score) => {
+        await axios.post(route('smilies'), {score});
 
-        Inertia.post(route('smilies'), {score});
+        emitAbroad({score});
     };
 
 </script>

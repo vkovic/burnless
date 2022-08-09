@@ -24,6 +24,21 @@ function closeModal() {
     }
 }
 
+function setLsData() {
+    let day = localStorage.getItem('burnless.day');
+
+    if (!day) {
+        localStorage.setItem('burnless.day', '1');
+    }
+
+    console.log({day});
+
+
+}
+
+
+setLsData();
+
 
 
 
