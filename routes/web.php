@@ -25,6 +25,14 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/settings', function () {
+    // Settings should get order of appearing
+    return [
+        'quotes' => now()->addHours(1),
+        'smilies' => now()->addHours(1)->addMinutes(12),
+    ];
+});
+
 Route::get('/go', [PlayController::class, 'go']);
 
 Route::get('burnless', function () {
