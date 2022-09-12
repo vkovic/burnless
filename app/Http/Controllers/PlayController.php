@@ -78,6 +78,9 @@ class PlayController extends Controller
                 throw new \Exception('already voted');
             }
 
+            // TODO:
+            // Inspiring::quote() instead of api
+
             Score::create([
                 'session_id' => Session::getId(),
                 'type' => 'quote',
