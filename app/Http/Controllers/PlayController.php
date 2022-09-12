@@ -16,6 +16,11 @@ class PlayController extends Controller
         ]);
     }
 
+    public function admin()
+    {
+        return Inertia::render('Admin');
+    }
+
     public function go()
     {
         $sid = Session::getId();

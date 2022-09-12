@@ -2,15 +2,28 @@
     <div class="bg-[url('https://source.unsplash.com/random?nature')]">
         <Suspense>
             <blockquote
-                class="p-10 text-white"
+                class="p-10 text-white mb-5"
             >
-                <p class="text-xl">"{{ quote.content }}"</p>
+                <p class="text-xl drop-shadow-lg">"{{ quote.content }}"</p>
                 <footer class="text-right pt-4 tracking-wider uppercase font-semibold">{{ quote.author}}</footer>
             </blockquote>
         </Suspense>
-        <div class="flex justify-between">
-            <button @click="handleSnooze" class="px-2 py-3 bg-gray-300">Snooze</button>
-            <button @click="handleOk" class="px-2 py-3 bg-indigo-300">Ok</button>
+        <div class="flex justify-between px-3 py-2">
+            <button
+                type="button"
+                class="inline-flex items-center rounded-md border border-gray-800 px-4 py-2 text-sm font-medium text-gray-800"
+                @click="handleSnooze"
+            >
+                Snooze
+            </button>
+
+            <button
+                type="button"
+                class="inline-flex items-center rounded-md border border-transparent bg-green-400 px-4 py-2"
+                @click="handleOk"
+            >
+                <span class="text-sm font-medium text-white">OK</span>
+            </button>
         </div>
     </div>
 </template>

@@ -35,6 +35,8 @@ Route::get('/settings', function () {
 
 Route::get('/go', [PlayController::class, 'go']);
 
+Route::get('/admin', [PlayController::class, 'admin']);
+
 Route::get('burnless', function () {
     return redirect('/burnless-client/index.html');
 });

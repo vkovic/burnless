@@ -13,7 +13,6 @@
 <script setup lang="ts">
 
     import { ref, Ref } from 'vue';
-    import { Inertia } from '@inertiajs/inertia';
     import axios from 'axios';
     import { emitAbroad } from '../Composables/useEmitAbroad';
 
