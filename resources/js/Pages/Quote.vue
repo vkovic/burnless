@@ -4,8 +4,8 @@
             <blockquote
                 class="p-10 text-white mb-5"
             >
-                <p class="text-xl drop-shadow-lg">"{{ quote.content }}"</p>
-                <footer class="text-right pt-4 tracking-wider uppercase font-semibold">{{ quote.author}}</footer>
+                <p class="text-xl drop-shadow-sm">"{{ quote.content }}"</p>
+                <footer class="text-right pt-4 tracking-wider uppercase font-semibold drop-shadow-sm">{{ quote.author }}</footer>
             </blockquote>
         </Suspense>
         <div class="flex justify-between px-3 py-2">
