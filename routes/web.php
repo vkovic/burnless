@@ -46,6 +46,10 @@ Route::get('/second', [PlayController::class, 'second'])->name('second');
 Route::any('/smilies', [PlayController::class, 'smilies'])->name('smilies');
 Route::any('/quote', [PlayController::class, 'quote'])->name('quote');
 
+//Route::get('/dashboard', function () {
+//    return Inertia::render('Dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
