@@ -18,10 +18,11 @@
                     'text-gray-500 dark:text-gray-400': !active,
                 },
             ]"
-        >{{ title }}</a>
-        <router-link
+        >{{ title }}
+        </a>
+        <Link
             v-if="to"
-            :to="to"
+            :href="to"
             v-bind="$attrs"
             :class="[
                 'transition-colors hover:text-gray-900 dark:hover:text-gray-100',
@@ -30,19 +31,23 @@
                     'text-gray-500 dark:text-gray-400': !active,
                 },
             ]"
-        >{{ title }}</router-link>
+        >
+            {{ title }}
+        </Link>
     </li>
 </template>
 
 <script setup>
 
-const props = defineProps({
-    href: String,
-    to: [String, Object],
-    title: String,
-    active: {
-        type: Boolean,
-        default: false,
-    }
-})
+    import { Link } from '@inertiajs/inertia-vue3';
+
+    const props = defineProps({
+        href: String,
+        to: [String, Object],
+        title: String,
+        active: {
+            type: Boolean,
+            default: false
+        }
+    });
 </script>

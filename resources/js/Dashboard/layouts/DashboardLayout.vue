@@ -14,7 +14,7 @@
         >
             <Navbar />
 
-            <router-view></router-view>
+            <slot />
 
             <PageFooter />
         </div>

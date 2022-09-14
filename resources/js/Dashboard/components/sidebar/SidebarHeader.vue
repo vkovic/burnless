@@ -1,9 +1,9 @@
 <template>
     <div class="flex items-center justify-between flex-shrink-0 px-3">
-        <router-link :to="{ name: 'Dashboard' }" class="inline-flex items-center gap-2">
+        <Link :href="route('dashboard')" class="inline-flex items-center gap-2">
             <span class="sr-only">K-UI</span>
             <Logo aria-hidden="true" class="w-10 h-auto" />
-        </router-link>
+        </Link>
 
         <Button
             iconOnly
@@ -31,9 +31,10 @@
 </template>
 
 <script setup>
-import Logo from '@/Dashboard/components/Logo.vue'
-import Button from '@/Dashboard/components/Button.vue'
-import { MenuFoldLineLeftIcon, MenuFoldLineRightIcon } from '@/Dashboard/components/icons/outline'
-import { XIcon } from '@heroicons/vue/outline'
-import { sidebarState } from '@/Dashboard/composables'
+    import Logo from '@/Dashboard/components/Logo.vue';
+    import Button from '@/Dashboard/components/Button.vue';
+    import { MenuFoldLineLeftIcon, MenuFoldLineRightIcon } from '@/Dashboard/components/icons/outline';
+    import { XIcon } from '@heroicons/vue/outline';
+    import { sidebarState } from '@/Dashboard/composables';
+    import {Link} from '@inertiajs/inertia-vue3';
 </script>

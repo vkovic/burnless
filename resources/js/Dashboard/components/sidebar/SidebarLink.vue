@@ -19,11 +19,12 @@
         <span
             class="text-base font-medium"
             v-show="sidebarState.isOpen || sidebarState.isHovered"
-        >{{ title }}</span>
+        >{{ title }}
+        </span>
     </a>
-    <router-link
+    <Link
         v-else-if="to"
-        :to="to"
+        :href="to"
         :class="[
             'p-2 flex items-center gap-2 rounded-md transition-colors',
             {
@@ -41,8 +42,9 @@
         <span
             class="text-base font-medium"
             v-show="sidebarState.isOpen || sidebarState.isHovered"
-        >{{ title }}</span>
-    </router-link>
+        >{{ title }}
+        </span>
+    </Link>
     <button
         v-else
         type="button"
@@ -63,31 +65,33 @@
         <span
             class="text-base font-medium"
             v-show="sidebarState.isOpen || sidebarState.isHovered"
-        >{{ title }}</span>
+        >{{ title }}
+        </span>
         <slot name="arrow" />
     </button>
 </template>
 
 <script setup>
-import { sidebarState } from '@/Dashboard/composables'
-import { EmptyCircleIcon } from '@/Dashboard/components/icons/outline'
+    import { sidebarState } from '@/Dashboard/composables';
+    import { EmptyCircleIcon } from '@/Dashboard/components/icons/outline';
+    import { Link } from '@inertiajs/inertia-vue3';
 
-const props = defineProps({
-    href: {
-        type: String,
-        required: false,
-    },
-    to: {
-        type: [String, Object],
-        required: false,
-    },
-    active: {
-        type: Boolean,
-        default: false,
-    },
-    title: {
-        type: String,
-        required: true,
-    },
-});
+    const props = defineProps({
+        href: {
+            type: String,
+            required: false
+        },
+        to: {
+            type: [String, Object],
+            required: false
+        },
+        active: {
+            type: Boolean,
+            default: false
+        },
+        title: {
+            type: String,
+            required: true
+        }
+    });
 </script>

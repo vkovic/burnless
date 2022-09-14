@@ -40,19 +40,19 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-import PerfrectScrollbar from '@/Dashboard/components/PerfectScrollbar.vue'
-import SidebarLink from '@/Dashboard/components/sidebar/SidebarLink.vue'
-import { DashboardIcon } from '@/Dashboard/components/icons/outline'
-import { ShieldCheckIcon, DocumentIcon } from '@heroicons/vue/outline'
-import SidebarCollapsible from '@/Dashboard/components/sidebar/SidebarCollapsible.vue'
-import SidebarCollapsibleItem from '@/Dashboard/components/sidebar/SidebarCollapsibleItem.vue'
+    import { useRouter } from 'vue-router';
+    import PerfrectScrollbar from '@/Dashboard/components/PerfectScrollbar.vue';
+    import SidebarLink from '@/Dashboard/components/sidebar/SidebarLink.vue';
+    import { DashboardIcon } from '@/Dashboard/components/icons/outline';
+    import { ShieldCheckIcon, DocumentIcon } from '@heroicons/vue/outline';
+    import SidebarCollapsible from '@/Dashboard/components/sidebar/SidebarCollapsible.vue';
+    import SidebarCollapsibleItem from '@/Dashboard/components/sidebar/SidebarCollapsibleItem.vue';
 
-const isCurrentRoute = (routeName) => {
-    return useRouter().currentRoute.value.name == routeName
-}
+    const isCurrentRoute = (routeName) => {
+        return route().current(routeName);
+    };
 
-const isCurrentPath = (path) => {
-    return useRouter().currentRoute.value.path.startsWith(path)
-}
+    const isCurrentPath = (path) => {
+        return route().current(`${path}*`);
+    };
 </script>
