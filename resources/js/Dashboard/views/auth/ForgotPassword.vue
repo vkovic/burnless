@@ -44,10 +44,10 @@
 
 <script setup>
 import { reactive } from 'vue'
-import InputIconWrapper from '@/components/InputIconWrapper.vue'
-import Button from '@/components/Button.vue'
-import Input from '@/components/Input.vue'
-import Label from '@/components/Label.vue'
+import InputIconWrapper from '@/Dashboard/components/InputIconWrapper.vue'
+import Button from '@/Dashboard/components/Button.vue'
+import Input from '@/Dashboard/components/Input.vue'
+import Label from '@/Dashboard/components/Label.vue'
 import { MailIcon, PaperAirplaneIcon } from '@heroicons/vue/outline'
 
 

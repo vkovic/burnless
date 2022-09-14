@@ -62,7 +62,7 @@
 import { onMounted, ref } from 'vue'
 import ApexCharts from 'apexcharts'
 import { UserAddIcon, ChartBarIcon } from '@heroicons/vue/outline'
-import BaseCard from '@/components/BaseCard.vue'
+import BaseCard from '@/Dashboard/components/BaseCard.vue'
 
 
 const earningChartEl = ref(null)

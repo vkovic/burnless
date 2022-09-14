@@ -59,7 +59,7 @@
 </template>
 
 <script setup>
-import QuiclStatisticsCard from '@/components/QuiclStatisticsCard.vue'
+import QuiclStatisticsCard from '@/Dashboard/components/QuiclStatisticsCard.vue'
 import { UserGroupIcon, EyeIcon, ShoppingCartIcon, ChartPieIcon } from '@heroicons/vue/outline'
 
 const customersData = [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13]

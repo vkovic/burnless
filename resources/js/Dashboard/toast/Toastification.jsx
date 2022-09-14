@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { CheckIcon, XIcon, ExclamationIcon, QuestionMarkCircleIcon } from '@heroicons/vue/outline'
-import '@/toast/style.css'
-import Button from '@/components/Button.vue'
+import '@/Dashboard/toast/style.css'
+import Button from '@/Dashboard/components/Button.vue'
 
 export default defineComponent({
   props: {

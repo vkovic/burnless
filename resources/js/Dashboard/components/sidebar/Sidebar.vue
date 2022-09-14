@@ -39,10 +39,10 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { sidebarState } from '@/composables'
-import SidebarHeader from '@/components/sidebar/SidebarHeader.vue'
-import SidebarContent from '@/components/sidebar/SidebarContent.vue'
-import SidebarFooter from '@/components/sidebar/SidebarFooter.vue'
+import { sidebarState } from '@/Dashboard/composables'
+import SidebarHeader from '@/Dashboard/components/sidebar/SidebarHeader.vue'
+import SidebarContent from '@/Dashboard/components/sidebar/SidebarContent.vue'
+import SidebarFooter from '@/Dashboard/components/sidebar/SidebarFooter.vue'
 
 onMounted(() => {
     window.addEventListener('resize', sidebarState.handleWindowResize)

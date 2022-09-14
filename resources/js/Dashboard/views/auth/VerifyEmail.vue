@@ -30,7 +30,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
-import Button from '@/components/Button.vue'
+import Button from '@/Dashboard/components/Button.vue'
 
 const props = defineProps({
     status: String

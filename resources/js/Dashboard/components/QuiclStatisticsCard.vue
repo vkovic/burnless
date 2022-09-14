@@ -62,7 +62,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
-import BaseCard from '@/components/BaseCard.vue'
+import BaseCard from '@/Dashboard/components/BaseCard.vue'
 import ApexCharts from 'apexcharts'
 import { ChartBarIcon, TrendingUpIcon, TrendingDownIcon, MinusIcon } from '@heroicons/vue/outline'
 

@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import Button from '@/components/Button.vue'
-import { MenuFoldLineLeftIcon, MenuFoldLineRightIcon } from '@/components/icons/outline'
-import { sidebarState } from '@/composables'
+import Button from '@/Dashboard/components/Button.vue'
+import { MenuFoldLineLeftIcon, MenuFoldLineRightIcon } from '@/Dashboard/components/icons/outline'
+import { sidebarState } from '@/Dashboard/composables'
 </script>

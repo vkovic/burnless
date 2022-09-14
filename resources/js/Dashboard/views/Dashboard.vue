@@ -28,10 +28,10 @@
 </template>
 
 <script setup>
-import PageWrapper from '@/components/PageWrapper.vue'
-import StatisticsSection from '@/components/pages/dashboard/StatisticsSection.vue'
-import SalesSection from '@/components/pages/dashboard/SalesSection.vue'
-import LatestSection from '@/components/pages/dashboard/LatestSection.vue'
-import Button from '@/components/Button.vue'
-import { GithubIcon } from '@/components/icons/brands'
+import PageWrapper from '@/Dashboard/components/PageWrapper.vue'
+import StatisticsSection from '@/Dashboard/components/pages/dashboard/StatisticsSection.vue'
+import SalesSection from '@/Dashboard/components/pages/dashboard/SalesSection.vue'
+import LatestSection from '@/Dashboard/components/pages/dashboard/LatestSection.vue'
+import Button from '@/Dashboard/components/Button.vue'
+import { GithubIcon } from '@/Dashboard/components/icons/brands'
 </script>

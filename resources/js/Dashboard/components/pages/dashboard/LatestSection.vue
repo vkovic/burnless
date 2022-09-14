@@ -70,8 +70,8 @@
 </template>
 
 <script setup>
-import BaseCard from '@/components/BaseCard.vue'
-import Button from '@/components/Button.vue'
+import BaseCard from '@/Dashboard/components/BaseCard.vue'
+import Button from '@/Dashboard/components/Button.vue'
 import { DotsVerticalIcon, PlusCircleIcon, MinusCircleIcon } from '@heroicons/vue/outline'
-import { EmptyCircleIcon } from '@/components/icons/outline'
+import { EmptyCircleIcon } from '@/Dashboard/components/icons/outline'
 </script>

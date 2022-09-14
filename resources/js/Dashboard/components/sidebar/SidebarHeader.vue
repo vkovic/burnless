@@ -31,9 +31,9 @@
 </template>
 
 <script setup>
-import Logo from '@/components/Logo.vue'
-import Button from '@/components/Button.vue'
-import { MenuFoldLineLeftIcon, MenuFoldLineRightIcon } from '@/components/icons/outline'
+import Logo from '@/Dashboard/components/Logo.vue'
+import Button from '@/Dashboard/components/Button.vue'
+import { MenuFoldLineLeftIcon, MenuFoldLineRightIcon } from '@/Dashboard/components/icons/outline'
 import { XIcon } from '@heroicons/vue/outline'
-import { sidebarState } from '@/composables'
+import { sidebarState } from '@/Dashboard/composables'
 </script>

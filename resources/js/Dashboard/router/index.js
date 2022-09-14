@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from 'nprogress'
-import routes from '@/router/routes'
-import { sidebarState } from '@/composables'
+import routes from '@/Dashboard/router/routes'
+import { sidebarState } from '@/Dashboard/composables'
 
 const router = createRouter({
   history: createWebHashHistory('kui-dashboard-vue'),

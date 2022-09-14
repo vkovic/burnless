@@ -58,7 +58,7 @@
 </template>
 
 <script setup>
-import Button from '@/components/Button.vue'
+import Button from '@/Dashboard/components/Button.vue'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import { DotsHorizontalIcon } from '@heroicons/vue/outline'
 

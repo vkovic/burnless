@@ -22,8 +22,8 @@
 </template>
 
 <script setup>
-import { sidebarState } from '@/composables'
-import Sidebar from '@/components/sidebar/Sidebar.vue'
-import Navbar from '@/components/Navbar.vue'
-import PageFooter from '@/components/PageFooter.vue'
+    import { sidebarState } from '@/Dashboard/composables';
+    import Sidebar from '@/Dashboard/components/sidebar/Sidebar.vue';
+    import Navbar from '@/Dashboard/components/Navbar.vue';
+    import PageFooter from '@/Dashboard/components/PageFooter.vue';
 </script>

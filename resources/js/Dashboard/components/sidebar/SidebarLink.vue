@@ -69,8 +69,8 @@
 </template>
 
 <script setup>
-import { sidebarState } from '@/composables'
-import { EmptyCircleIcon } from '@/components/icons/outline'
+import { sidebarState } from '@/Dashboard/composables'
+import { EmptyCircleIcon } from '@/Dashboard/components/icons/outline'
 
 const props = defineProps({
     href: {

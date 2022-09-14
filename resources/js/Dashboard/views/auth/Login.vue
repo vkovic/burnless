@@ -82,11 +82,11 @@
 
 <script setup>
 import { reactive } from 'vue'
-import InputIconWrapper from '@/components/InputIconWrapper.vue'
-import Label from '@/components/Label.vue'
-import Input from '@/components/Input.vue'
-import Checkbox from '@/components/Checkbox.vue'
-import Button from '@/components/Button.vue'
+import InputIconWrapper from '@/Dashboard/components/InputIconWrapper.vue'
+import Label from '@/Dashboard/components/Label.vue'
+import Input from '@/Dashboard/components/Input.vue'
+import Checkbox from '@/Dashboard/components/Checkbox.vue'
+import Button from '@/Dashboard/components/Button.vue'
 import { MailIcon, LockClosedIcon, LoginIcon } from '@heroicons/vue/outline'
 
 const loginForm = reactive({

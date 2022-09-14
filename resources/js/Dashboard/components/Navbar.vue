@@ -122,13 +122,13 @@ import {
     scrolling,
     toggleDarkMode,
     sidebarState,
-} from '@/composables'
-import Button from '@/components/Button.vue'
-import Logo from '@/components/Logo.vue'
-import Dropdown from '@/components/Dropdown.vue'
-import DropdownLink from '@/components/DropdownLink.vue'
-import { ArrowsInnerIcon } from '@/components/icons/outline'
-import userAvatar from '@/assets/images/avatar.jpg'
+} from '@/Dashboard/composables'
+import Button from '@/Dashboard/components/Button.vue'
+import Logo from '@/Dashboard/components/Logo.vue'
+import Dropdown from '@/Dashboard/components/Dropdown.vue'
+import DropdownLink from '@/Dashboard/components/DropdownLink.vue'
+import { ArrowsInnerIcon } from '@/Dashboard/components/icons/outline'
+import userAvatar from '@/Dashboard/assets/images/avatar.jpg'
 
 const { isFullscreen, toggle: toggleFullScreen } = useFullscreen()
 

@@ -22,6 +22,6 @@
 </template>
 
 <script setup>
-import Logo from '@/components/Logo.vue'
-import PageFooter from '@/components/PageFooter.vue'
+import Logo from '@/Dashboard/components/Logo.vue'
+import PageFooter from '@/Dashboard/components/PageFooter.vue'
 </script>

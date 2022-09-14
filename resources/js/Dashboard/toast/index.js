@@ -1,5 +1,5 @@
 import { useToast } from 'vue-toastification'
-import Toastification from '@/toast/Toastification'
+import Toastification from '@/Dashboard/toast/Toastification'
 
 export const toast = useToast()
 

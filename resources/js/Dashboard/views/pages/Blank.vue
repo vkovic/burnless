@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-import PageWrapper from '@/components/PageWrapper.vue'
+import PageWrapper from '@/Dashboard/components/PageWrapper.vue'
 </script>
