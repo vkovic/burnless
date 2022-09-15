@@ -52,23 +52,6 @@
                 <ArrowsInnerIcon v-show="isFullscreen" aria-hidden="true" :class="iconSizeClasses" />
             </Button>
 
-            <!-- Dropdwon -->
-            <Dropdown align="right" width="48">
-                <template #trigger>
-                    <button
-                        class="flex text-sm transition border-2 border-transparent rounded-md focus:outline-none focus:ring focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark-eval-1"
-                    >
-                        <img
-                            class="object-cover w-8 h-8 rounded-md"
-                            :src="userAvatar"
-                            alt="User Name"
-                        />
-                    </button>
-                </template>
-                <template #content>
-                    <DropdownLink to="#">Log Out</DropdownLink>
-                </template>
-            </Dropdown>
         </div>
     </nav>
 
@@ -128,7 +111,6 @@ import Logo from '@/Dashboard/components/Logo.vue'
 import Dropdown from '@/Dashboard/components/Dropdown.vue'
 import DropdownLink from '@/Dashboard/components/DropdownLink.vue'
 import { ArrowsInnerIcon } from '@/Dashboard/components/icons/outline'
-import userAvatar from '@/Dashboard/assets/images/avatar.jpg'
 
 const { isFullscreen, toggle: toggleFullScreen } = useFullscreen()
 

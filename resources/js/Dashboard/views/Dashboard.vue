@@ -23,8 +23,6 @@
             <!-- Sales section -->
             <SalesSection />
 
-            <!-- Latest users & transaction section -->
-            <LatestSection />
         </PageWrapper>
     </DashboardLayout>
 </template>
@@ -33,7 +31,6 @@
     import PageWrapper from '@/Dashboard/components/PageWrapper.vue';
     import StatisticsSection from '@/Dashboard/components/pages/dashboard/StatisticsSection.vue';
     import SalesSection from '@/Dashboard/components/pages/dashboard/SalesSection.vue';
-    import LatestSection from '@/Dashboard/components/pages/dashboard/LatestSection.vue';
     import Button from '@/Dashboard/components/Button.vue';
     import { GithubIcon } from '@/Dashboard/components/icons/brands';
 
