@@ -1,26 +1,51 @@
-<script setup>
-import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
-import { Head } from '@inertiajs/inertia-vue3';
-</script>
-
 <template>
-    <Head title="Dashboard" />
-
-    <BreezeAuthenticatedLayout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
-            </h2>
-        </template>
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
-                        You're logged in!
-                    </div>
+    <DashboardLayout>
+        <PageWrapper>
+            <template #header>
+                <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                    <h2 class="text-xl font-semibold leading-tight">Dashboard</h2>
+                    <Button
+                        target="_blank"
+                        href="https://github.com/kamona-ui/kui-dashboard-vue"
+                        variant="black"
+                        class="justify-center max-w-sm gap-2"
+                        v-slot="{ iconSizeClasses }"
+                    >
+                        <GithubIcon aria-hidden="true" :class="iconSizeClasses" />
+                        <span>Star on Github</span>
+                    </Button>
                 </div>
-            </div>
-        </div>
-    </BreezeAuthenticatedLayout>
+            </template>
+
+            <!-- Statistics section -->
+            <StatisticsSection />
+
+            <!-- Sales section -->
+            <SalesSection />
+
+        </PageWrapper>
+    </DashboardLayout>
 </template>
+
+<script setup>
+    import PageWrapper from '@/Dashboard/components/PageWrapper.vue';
+    import StatisticsSection from '@/Dashboard/components/pages/dashboard/StatisticsSection.vue';
+    import SalesSection from '@/Dashboard/components/pages/dashboard/SalesSection.vue';
+    import Button from '@/Dashboard/components/Button.vue';
+    import { GithubIcon } from '@/Dashboard/components/icons/brands';
+
+    import DashboardLayout from '@/Dashboard/layouts/DashboardLayout.vue';
+
+    //export default {
+        // Using a render function
+        // layout: (h, page) => h(Layout, () => child),
+
+        // Using the shorthand
+        //layout: Layout,
+
+        // props: {
+        //     user: Object,
+        // },
+    //};
+
+</script>

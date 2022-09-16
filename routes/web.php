@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PlayController;
+use App\Http\Controllers\ModuleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,22 +33,22 @@ Route::get('/settings', function () {
     ];
 });
 
-Route::get('/go', [PlayController::class, 'go']);
+Route::get('/go', [ModuleController::class, 'go']);
 
-Route::get('/admin', [PlayController::class, 'admin']);
+Route::get('/admin', [ModuleController::class, 'admin']);
 
 Route::get('burnless', function () {
     return redirect('/burnless-client/index.html');
 });
 
-Route::get('/preview/{template}', [PlayController::class, 'preview'])->name('preview');
-Route::get('/second', [PlayController::class, 'second'])->name('second');
-Route::any('/smilies', [PlayController::class, 'smilies'])->name('smilies');
-Route::any('/quote', [PlayController::class, 'quote'])->name('quote');
+Route::get('/preview/{template}', [ModuleController::class, 'preview'])->name('preview');
+Route::get('/second', [ModuleController::class, 'second'])->name('second');
+Route::any('/smilies', [ModuleController::class, 'smilies'])->name('smilies');
+Route::any('/quote', [ModuleController::class, 'quote'])->name('quote');
 
-//Route::get('/dashboard', function () {
-//    return Inertia::render('Dashboard');
-//})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return Inertia::render('DashboardDefault');
+})->middleware(['auth', 'verified'])->name('dashboard-default');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

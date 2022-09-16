@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
-class PlayController extends Controller
+class ModuleController extends Controller
 {
     public function preview($template)
     {
@@ -56,10 +56,13 @@ class PlayController extends Controller
                 throw new \Exception('already voted');
             }
 
+            // Every module has it's own multiplier
+            $scoreMultiplier = 5;
+
             Score::create([
                 'session_id' => Session::getId(),
                 'type' => 'smilies',
-                'score' => $request->input('score'),
+                'score' => $request->input('score') * $scoreMultiplier,
             ]);
 
             return;
@@ -83,13 +86,16 @@ class PlayController extends Controller
                 throw new \Exception('already voted');
             }
 
+            // Every module has it's own multiplier
+            $scoreMultiplier = 1;
+
             // TODO:
             // Inspiring::quote() instead of api
 
             Score::create([
                 'session_id' => Session::getId(),
                 'type' => 'quote',
-                'score' => 5,
+                'score' => 5 * $scoreMultiplier,
             ]);
 
             return;

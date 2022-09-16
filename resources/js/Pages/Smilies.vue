@@ -14,7 +14,7 @@
 
     import { ref, Ref } from 'vue';
     import axios from 'axios';
-    import { emitAbroad } from '../Composables/useEmitAbroad';
+    import { emitAbroad } from '../Composables';
 
     const show: Ref<Boolean> = ref(false);
     const scores: Array<Number> = [1, 2, 3, 4, 5];

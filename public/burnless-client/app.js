@@ -1,4 +1,6 @@
 function attachAbroadEventListener() {
+    // When user clicks button on Popup, part of the logic will be handled by Server
+    // (in client/server concept, Client = User interacting with popup, Server = Laravel Backend)
     window.addEventListener('message', (e) => {
         const abroadMessage = e.data.abroadMessage;
 
@@ -22,7 +24,7 @@ function closeModal() {
 }
 
 function getModalHtml() {
-    let link = '/quote';
+    let link = '/smilies';
     let scripts = '<script src="https://unpkg.com/axios/dist/axios.min.js"></script>';
     scripts += '<link rel="stylesheet" href="/burnless-client/style.css">';
 
