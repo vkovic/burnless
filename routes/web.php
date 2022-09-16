@@ -16,15 +16,6 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
 Route::get('/settings', function () {
     // Settings should get order of appearing
     return [
@@ -33,18 +24,13 @@ Route::get('/settings', function () {
     ];
 });
 
-Route::get('/go', [ModuleController::class, 'go']);
-
-Route::get('/admin', [ModuleController::class, 'admin']);
-
 Route::get('burnless', function () {
     return redirect('/burnless-client/index.html');
 });
 
 Route::get('/preview/{template}', [ModuleController::class, 'preview'])->name('preview');
-Route::get('/second', [ModuleController::class, 'second'])->name('second');
-Route::any('/smilies', [ModuleController::class, 'smilies'])->name('smilies');
-Route::any('/quote', [ModuleController::class, 'quote'])->name('quote');
+Route::any('/modules/score', [ModuleController::class, 'score'])->name('score');
+Route::any('/modules/quote', [ModuleController::class, 'quote'])->name('quote');
 
 Route::get('/dashboard', function () {
     return Inertia::render('DashboardDefault');
