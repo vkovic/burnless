@@ -75,7 +75,10 @@ class ModuleController extends Controller
 
     public function quote(Request $request)
     {
+
         if ($request->isMethod('POST')) {
+
+            (new Score())->handle($request->all());
 
             $scoreExists = Score::where('session_id', Session::getId())
                 ->where('created_at', '>=', today()->startOfDay())
