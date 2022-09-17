@@ -19,8 +19,14 @@ use Inertia\Inertia;
 Route::get('/settings', function () {
     // Settings should get order of appearing
     return [
-        'quotes' => now()->addHours(1),
-        'smilies' => now()->addHours(1)->addMinutes(12),
+        [
+            'url' => '/modules/quote',
+            'score' => null,
+        ],
+        [
+            'url' => '/modules/score',
+            'score' => null,
+        ]
     ];
 });
 

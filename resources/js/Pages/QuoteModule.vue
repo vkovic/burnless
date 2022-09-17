@@ -31,7 +31,7 @@
 <script setup lang="ts">
 
     import { nextTick, onMounted, reactive } from 'vue';
-    import { emitAbroad } from '../Composables/useEmitAbroad';
+    import { emitAbroad } from '@/Composables';
     import axios from 'axios';
     import { Inertia } from '@inertiajs/inertia';
 
@@ -54,7 +54,7 @@
     const handleOk = async () => {
         const data = {clicked: 'OK'};
 
-        await axios.post(route('quote', data));
+        await axios.post(route('quote'), {data});
 
         emitAbroad(data);
     };

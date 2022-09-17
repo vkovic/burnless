@@ -62,6 +62,6 @@ class ModuleController extends Controller
             return redirect()->back();
         }
 
-        return Inertia::render('Quote');
+        return Inertia::render('QuoteModule');
     }
 }
