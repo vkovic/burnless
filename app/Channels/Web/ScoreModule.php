@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Modules\Web;
+namespace App\Channels\Web;
 
 use App\Models\Score;
-use App\Modules\AbstractModule;
+use App\Channels\AbstractModule;
 use Illuminate\Support\Facades\Session;
 
-class QuotesModule extends AbstractModule
+class ScoreModule extends AbstractModule
 {
-    public function handle(array $data): void
+    public function handlePopupSubmit(array $data): void
     {
         $scoreExists = Score::where('session_id', Session::getId())
             ->where('created_at', '>=', today()->startOfDay())
-            ->where('type', 'smilies')
+            ->where('type', 'score')
             ->exists();
 
         if ($scoreExists) {
@@ -24,7 +24,7 @@ class QuotesModule extends AbstractModule
 
         Score::create([
             'session_id' => Session::getId(),
-            'type' => 'smilies',
+            'type' => 'score',
             'score' => $data['score'] * $scoreMultiplier,
         ]);
 

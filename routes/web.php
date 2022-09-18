@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\WebModuleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,31 +16,31 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/settings', function () {
-    // Settings should get order of appearing
-    return [
-        [
-            'url' => '/modules/quote',
-            'score' => null,
-        ],
-        [
-            'url' => '/modules/score',
-            'score' => null,
-        ]
-    ];
-});
+//
+// Client Preview
+//
 
 Route::get('burnless', function () {
     return redirect('/burnless-client/index.html');
 });
 
-Route::get('/preview/{template}', [ModuleController::class, 'preview'])->name('preview');
-Route::any('/modules/score', [ModuleController::class, 'score'])->name('score');
-Route::any('/modules/quote', [ModuleController::class, 'quote'])->name('quote');
+//
+// Module Preview
+//
 
-Route::get('/dashboard', function () {
-    return Inertia::render('DashboardDefault');
-})->middleware(['auth', 'verified'])->name('dashboard-default');
+Route::get('/preview/{template}', [WebModuleController::class, 'preview'])->name('preview');
+
+//
+// Modules
+//
+
+Route::get('/modules/getDayData', [WebModuleController::class, 'dayData'])->name('module.dayData');
+Route::get('/modules/{module}', [WebModuleController::class, 'get'])->name('module');
+Route::post('/modules/{module}', [WebModuleController::class, 'submit'])->name('module');
+
+//
+// Dashboard
+//
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

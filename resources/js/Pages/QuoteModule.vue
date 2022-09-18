@@ -12,7 +12,7 @@
             <button
                 type="button"
                 class="inline-flex items-center rounded-md border border-gray-800 px-4 py-2 text-sm font-medium text-gray-800"
-                @click="handleSnooze"
+                @click="handle"
             >
                 Snooze
             </button>
@@ -20,7 +20,7 @@
             <button
                 type="button"
                 class="inline-flex items-center rounded-md border border-transparent bg-green-400 px-4 py-2"
-                @click="handleOk"
+                @click="handle(1)"
             >
                 <span class="text-sm font-medium text-white">OK</span>
             </button>
@@ -51,19 +51,9 @@
         emitAbroad({height: window.document.body.scrollHeight});
     });
 
-    const handleOk = async () => {
-        const data = {clicked: 'OK'};
-
-        await axios.post(route('quote'), {data});
-
-        emitAbroad(data);
-    };
-
-    const handleSnooze = async () => {
-        const data = {clicked: 'SNOOZE'};
-
-        await axios.post(route('quote', data));
-
+    const handle = async (score) => {
+        const data = {score};
+        await axios.post(route('module', 'quote'), data);
         emitAbroad(data);
     };
 

@@ -64,7 +64,7 @@ async function init() {
     attachAbroadEventListener();
 
     if (getSettings() === null) {
-        let resp = await fetch('/settings');
+        let resp = await fetch('/modules/getDayData');
 
         setSettings(await resp.json());
     }
