@@ -16,11 +16,14 @@ class WebModuleController extends Controller
         return [
             [
                 'url' => '/modules/quote',
+                'module' => 'QuoteModule',
+                'type' => null,
                 'score' => null,
             ],
             [
-                'url' => '/modules/score',
+                'url' => 'ScoreModule',
                 'score' => null,
+                'type' => null,
             ]
         ];
     }

@@ -1,20 +1,25 @@
-function attachAbroadEventListener() {
+function attachClientEventListener() {
     // When user clicks button on Popup, part of the logic will be handled by Server
     // (in client/server concept, Client = User interacting with popup, Server = Laravel Backend)
     window.addEventListener('message', (e) => {
-        const abroadMessage = e.data.abroadMessage;
+        const serverData = e.data.serverData;
+        const popupScore = e.data.popupScore;
 
-        if (abroadMessage) {
-            // Filter only events we want to listen
-            if (abroadMessage.height) {
-                console.log('setting frame height');
-
-                document.querySelector('#modalFrame').style.height = abroadMessage.height + 'px';
-            } else {
-                console.log({abroadMessage});
-
-                closeModal();
+        // Handle shared server data
+        if (serverData) {
+            // Set frame height by given height from server
+            if (serverData.height) {
+                document.querySelector('#modalFrame').style.height = serverData.height + 'px';
             }
+        }
+
+        // Handle score from popup
+        if (popupScore) {
+
+            let settings = getSettings();
+
+
+            closeModal();
         }
     });
 }
@@ -61,7 +66,7 @@ function watchDog() {
 
 async function init() {
     // Attach event listener from to listen events from the iframe
-    attachAbroadEventListener();
+    attachClientEventListener();
 
     if (getSettings() === null) {
         let resp = await fetch('/modules/getDayData');

@@ -24,7 +24,7 @@
 
     import { nextTick, onMounted, ref, Ref } from 'vue';
     import axios from 'axios';
-    import { emitAbroad } from '../Composables';
+    import { emitPopupScore } from '../Composables';
     import smilieSadder from '../Assets/smilie_sadder.png';
     import smilieSad from '../Assets/smilie_sad.png';
     import smilieNormal from '../Assets/smilie_normal.png';
@@ -36,7 +36,7 @@
         await nextTick();
 
         console.log(window.document.body.scrollHeight);
-        emitAbroad({height: window.document.body.scrollHeight});
+        emitPopupScore({height: window.document.body.scrollHeight});
     });
 
     const show: Ref<Boolean> = ref(false);
@@ -67,7 +67,7 @@
 
         await axios.post(route('score'), {score});
 
-        emitAbroad({score});
+        emitPopupScore({score});
     };
 
 </script>

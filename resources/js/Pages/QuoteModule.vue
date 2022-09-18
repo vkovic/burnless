@@ -31,7 +31,7 @@
 <script setup lang="ts">
 
     import { nextTick, onMounted, reactive } from 'vue';
-    import { emitAbroad } from '@/Composables';
+    import { emitPopupScore, shareServerData, PopupScore } from '../Composables';
     import axios from 'axios';
     import { Inertia } from '@inertiajs/inertia';
 
@@ -48,13 +48,19 @@
 
         await nextTick();
 
-        emitAbroad({height: window.document.body.scrollHeight});
+        shareServerData({height: window.document.body.scrollHeight});
     });
 
+    // Handle client action (some popup interaction)
     const handle = async (score) => {
-        const data = {score};
-        await axios.post(route('module', 'quote'), data);
-        emitAbroad(data);
+        const popupScore: PopupScore = {
+            score: score,
+            type: 'QuoteModule'
+        };
+
+        await axios.post(route('module', 'quote'), popupScore);
+
+        emitPopupScore(popupScore);
     };
 
 </script>
