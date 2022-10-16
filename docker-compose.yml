@@ -28,8 +28,13 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - vol-mysql:/var/lib/mysql:cached
+      - db:/var/lib/mysql:cached
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - 8025:8025
 
 volumes:
-  vol-mysql:
+  db:
     driver: local

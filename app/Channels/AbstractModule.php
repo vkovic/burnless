@@ -16,10 +16,11 @@ abstract class AbstractModule
      *
      * @param array $data
      */
-    public function handlePopupSubmit($module, $score)
+    public function handlePopupSubmit($module, $type, $score)
     {
         Score::create([
             'session_id' => Session::getId(),
+            'type' => $type,
             'module' => $module,
             'type' => $this->getType(),
             'score' => $score * $this->multiplier,
