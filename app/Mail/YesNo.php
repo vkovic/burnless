@@ -7,7 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Score extends Mailable
+class YesNo extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -25,6 +25,6 @@ class Score extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.modules.score');
+        return $this->markdown('emails.modules.yes-no');
     }
 }

@@ -40,7 +40,7 @@ Route::get('/modules/{module}', [WebModuleController::class, 'get'])->name('modu
 Route::post('/modules/{module}', [WebModuleController::class, 'submit'])->name('module');
 
 // Submit action result - for any module type
-Route::get('/modules/{module}/submit', [ModuleController::class, 'submit'])->name('module.submit');
+Route::get('/modules/{module}/submit-action', [ModuleController::class, 'submit'])->name('module.submit-action');
 
 //
 // Dashboard
@@ -86,6 +86,8 @@ Route::post('/dashboard/action', function () {
             'name' => $data['name'],
             'date' => $data['date'],
             'data' => [
+                'title' => $data['title'],
+                'content' => $data['content'],
                 'yes' => $data['yes'],
                 'no' => $data['no'],
             ]

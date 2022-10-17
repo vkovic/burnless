@@ -1,11 +1,14 @@
-<x-mail::message>
-## {{ $title }}
+{{-- @formatter:off --}}
+@php /** @var \App\Models\Action $action */ @endphp
 
-{{ $content }}
+<x-mail::message>
+## {{ $action->data['title'] }}
+
+{{ $action->data['content'] }}
 
 @foreach(range(1, 5) as $i)
-@php($params = ['type' => $type, 'score' => $i, 'module' => 'score'])
-<x-mail::button :url="route('module.submit', $params)">
+@php($params = ['name' => $action->name, 'score' => $i, 'module' => 'Score'])
+<x-mail::button :url="route('module.submit-action', $params)">
 {{ $i }}
 </x-mail::button>
 @endforeach

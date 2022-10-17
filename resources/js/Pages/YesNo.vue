@@ -36,6 +36,46 @@
 
                         <!-- /Name -->
 
+                        <!-- Title -->
+
+                        <div class="space-y-6 sm:space-y-5">
+                            <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                                <label for="title" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                                    Title
+                                </label>
+                                <div class="mt-1 sm:col-span-2 sm:mt-0">
+                                    <input
+                                        v-model="form.title"
+                                        id="title"
+                                        type="text"
+                                        class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs sm:text-sm"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- /Title -->
+
+                        <!-- Content -->
+
+                        <div class="space-y-6 sm:space-y-5">
+                            <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                                <label for="content" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                                    Content
+                                </label>
+                                <div class="mt-1 sm:col-span-2 sm:mt-0">
+                                    <input
+                                        v-model="form.content"
+                                        id="title"
+                                        type="text"
+                                        class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs sm:text-sm"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- /Content -->
+
                         <!-- Yes -->
 
                         <div class="space-y-6 sm:space-y-5">
@@ -119,6 +159,8 @@ const form = reactive({
     module: 'YesNo',
     date: null,
     name: null,
+    title: null,
+    content: null,
     no: 1,
     yes: 5
 });
