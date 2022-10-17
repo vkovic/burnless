@@ -9,7 +9,7 @@
                     <div class="space-y-6 pt-8 sm:space-y-5 sm:pt-10">
                         <div>
                             <h3 class="text-lg font-medium leading-6 text-gray-900">
-                                Add action for `Score` module
+                                Add action for `Yes/No` module
                             </h3>
                             <p class="mt-1 max-w-2xl text-sm text-gray-500">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, placeat?
@@ -20,13 +20,13 @@
 
                         <div class="space-y-6 sm:space-y-5">
                             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                                <label for="title" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                                <label for="name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                                     Name
                                 </label>
                                 <div class="mt-1 sm:col-span-2 sm:mt-0">
                                     <input
                                         v-model="form.name"
-                                        id="title"
+                                        id="name"
                                         type="text"
                                         class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs sm:text-sm"
                                     />
@@ -36,45 +36,45 @@
 
                         <!-- /Name -->
 
-                        <!-- Title -->
+                        <!-- Yes -->
 
                         <div class="space-y-6 sm:space-y-5">
                             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                                <label for="title" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                                    Title
+                                <label for="yes" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                                    Score for `Yes`
                                 </label>
                                 <div class="mt-1 sm:col-span-2 sm:mt-0">
                                     <input
-                                        v-model="form.title"
-                                        id="title"
-                                        type="text"
+                                        v-model="form.yes"
+                                        id="yes"
+                                        type="number"
                                         class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs sm:text-sm"
                                     />
                                 </div>
                             </div>
                         </div>
 
-                        <!-- /Title -->
+                        <!-- /Yes -->
 
-                        <!-- Content -->
+                        <!-- No -->
 
                         <div class="space-y-6 sm:space-y-5">
                             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                                <label for="content" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                                    Content
+                                <label for="no" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                                    Score for `No`
                                 </label>
                                 <div class="mt-1 sm:col-span-2 sm:mt-0">
                                     <input
-                                        v-model="form.content"
-                                        id="title"
-                                        type="text"
+                                        v-model="form.no"
+                                        id="yes"
+                                        type="number"
                                         class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs sm:text-sm"
                                     />
                                 </div>
                             </div>
                         </div>
 
-                        <!-- /Content -->
+                        <!-- /No -->
 
                         <!-- Date -->
 
@@ -116,11 +116,11 @@ import { Inertia } from '@inertiajs/inertia';
 import { reactive } from 'vue';
 
 const form = reactive({
-    module: 'Score',
+    module: 'YesNo',
     date: null,
     name: null,
-    title: null,
-    content: null
+    no: 1,
+    yes: 5
 });
 
 function submit() {

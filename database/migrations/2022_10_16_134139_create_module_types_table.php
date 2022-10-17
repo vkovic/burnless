@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('module_types', function (Blueprint $table) {
+        Schema::create('actions', function (Blueprint $table) {
             $table->id();
-
-            $table->string('module');
             $table->string('name');
+            $table->string('module');
             $table->json('data');
-
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('module_types');
+        Schema::dropIfExists('actions');
     }
 };

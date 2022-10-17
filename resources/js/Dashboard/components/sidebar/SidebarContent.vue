@@ -14,17 +14,17 @@
             </template>
         </SidebarLink>
 
-        <SidebarCollapsible title="Admin" :active="isCurrentPath('/pages')">
+        <SidebarCollapsible title="Actions" :active="isCurrentPath('/pages')">
             <template #icon>
                 <DocumentIcon class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
             </template>
             <SidebarCollapsibleItem
-                :to="route('dashboard.module', {module: 'score'})"
+                :to="route('dashboard.module', {module: 'Score'})"
                 title="Score"
                 :active="isCurrentRoute('Blank')"
             />
             <SidebarCollapsibleItem
-                :to="route('dashboard.module', {module: 'yes-no'})"
+                :to="route('dashboard.module', {module: 'YesNo'})"
                 title="Yes/No"
                 :active="isCurrentRoute('Blank')"
             />

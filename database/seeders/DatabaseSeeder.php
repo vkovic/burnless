@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\ModuleType;
+use App\Models\Action;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        ModuleType::factory([
+        Action::factory([
             'name' => 'job-expectations',
             'data' => [
                 'title' => 'Amet',
