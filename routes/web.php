@@ -5,6 +5,8 @@ use App\Http\Controllers\ModuleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\User;
+use App\Models\Action;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +49,12 @@ Route::get('/modules/{module}/submit-action', [ModuleController::class, 'submit'
 //
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard')->with([
+        'totalUsers' => User::count(),
+        'totalActions' => Action::count(),
+        'todayUsers' => 3,
+        'todayActions' => Action::where('date', now()->format('Y-m-d'))->count(),
+    ]);
 })->name('dashboard');
 
 Route::get('/dashboard/modules/{module}', function ($module) {

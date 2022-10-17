@@ -36,7 +36,8 @@ class SendActionEmails extends Command
             $class = 'App\\Mail\\' . $action['module'];
             $mail = new $class($action);
 
-            foreach (User::all() as $recipient) {
+            $recipients = User::where('email', 'LIKE', '%@prine.ch')->get();
+            foreach ($recipients as $recipient) {
                 Mail::to($recipient->email)->send($mail);
             }
         }
