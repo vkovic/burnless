@@ -50,11 +50,23 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::get('/dashboard/modules/{module}', function ($module) {
+
+    return Inertia::render(ucfirst($module));
+})->name('dashboard.module');
+
+Route::post('/dashboard/modules/{module}', function () {
+    dump(request()->all());
+})->name('dashboard.module');
+
 //
 // Other
 //
 Route::get('/thanks', function () {
     return view('pages.thanks');
 })->name('thanks');
+
+
+
 
 require __DIR__.'/auth.php';

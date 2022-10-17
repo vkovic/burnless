@@ -5,13 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Score extends Model
+class ModuleType extends Model
 {
     use HasFactory;
-
-    protected $guarded = ['id'];
-
-    protected $casts = [
-        'date' => 'run_at'
-    ];
 }

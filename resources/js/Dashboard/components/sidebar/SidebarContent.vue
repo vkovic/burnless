@@ -6,7 +6,7 @@
     >
         <SidebarLink
             title="Dashboard"
-            :to="{ name: 'Dashboard' }"
+            :to="route('dashboard')"
             :active="isCurrentRoute('Dashboard')"
         >
             <template #icon>
@@ -14,27 +14,20 @@
             </template>
         </SidebarLink>
 
-        <SidebarCollapsible title="Pages" :active="isCurrentPath('/pages')">
+        <SidebarCollapsible title="Admin" :active="isCurrentPath('/pages')">
             <template #icon>
                 <DocumentIcon class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
             </template>
             <SidebarCollapsibleItem
-                :to="{ name: 'Blank' }"
-                title="Blank"
+                :to="route('dashboard.module', {module: 'score'})"
+                title="Score"
                 :active="isCurrentRoute('Blank')"
             />
-        </SidebarCollapsible>
-
-        <SidebarCollapsible title="Authentication">
-            <template #icon>
-                <ShieldCheckIcon class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
-            </template>
-            <SidebarCollapsibleItem :to="{ name: 'Login' }" title="Login" />
-            <SidebarCollapsibleItem :to="{ name: 'Register' }" title="Register" />
-            <SidebarCollapsibleItem :to="{ name: 'VerifyEmail' }" title="Verify Email" />
-            <SidebarCollapsibleItem :to="{ name: 'ForgotPassword' }" title="Forgot Password" />
-            <SidebarCollapsibleItem :to="{ name: 'ResetPassword' }" title="Reset Password" />
-            <SidebarCollapsibleItem :to="{ name: 'ConfirmPassword' }" title="Confirm Password" />
+            <SidebarCollapsibleItem
+                :to="route('dashboard.module', {module: 'yes-no'})"
+                title="Yes/No"
+                :active="isCurrentRoute('Blank')"
+            />
         </SidebarCollapsible>
     </PerfrectScrollbar>
 </template>
