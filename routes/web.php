@@ -57,6 +57,10 @@ Route::get('/dashboard/admin/{module}', function ($module) {
     return Inertia::render('Admin/' . $module);
 })->name('dashboard.module');
 
+Route::get('/dashboard/list', function () {
+    return Inertia::render('Admin/List')->with(['actions' => Action::all()]);
+})->name('dashboard.list');
+
 Route::post('/dashboard/action', function () {
     $data = request()->all();
 
@@ -84,7 +88,7 @@ Route::post('/dashboard/action', function () {
         ]);
     }
 
-    return redirect()->back();
+    return redirect()->route('dashboard.list');
 })->name('dashboard.action');
 
 // Pages

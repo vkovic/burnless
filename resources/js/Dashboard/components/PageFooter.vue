@@ -4,21 +4,7 @@
     >
         <p class="text-sm text-gray-500">
             &#169;
-            <span>{{ new Date().getFullYear() }}</span> K UI, All rights reserved
-        </p>
-
-        <p class="flex items-center gap-1 text-sm text-gray-500">
-            <span>Hand-crafted & Made with</span>
-            <span>
-                <span class="sr-only">love</span>
-                <HeartIcon aria-hidden="true" class="w-6 h-6 text-red-500" />
-            </span>
-            <span>by</span>
-            <a
-                href="https://github.com/Kamona-WD"
-                target="_blank"
-                class="text-blue-600 hover:underline"
-            >Ahmed Kamel</a>
+            <span>{{ new Date().getFullYear() }}</span> All rights reserved
         </p>
     </footer>
 </template>

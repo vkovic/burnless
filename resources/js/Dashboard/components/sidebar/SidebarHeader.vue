@@ -1,8 +1,7 @@
 <template>
     <div class="flex items-center justify-between flex-shrink-0 px-3">
         <Link :href="route('dashboard')" class="inline-flex items-center gap-2">
-            <span class="sr-only">K-UI</span>
-            <Logo aria-hidden="true" class="w-10 h-auto" />
+            <Logo aria-hidden="true" class="ml-2 w-24 h-auto"/>
         </Link>
 
         <Button

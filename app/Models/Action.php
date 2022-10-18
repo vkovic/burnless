@@ -15,4 +15,11 @@ class Action extends Model
         'date' => 'date',
         'data' => 'json',
     ];
+
+    protected $appends = ['formattedDate'];
+
+    public function getFormattedDateAttribute() {
+
+        return $this->date->format('Y-m-d');
+    }
 }

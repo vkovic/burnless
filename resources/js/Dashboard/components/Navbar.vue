@@ -27,18 +27,6 @@
             <Button
                 iconOnly
                 variant="secondary"
-                @click="toggleDarkMode()"
-                v-slot="{ iconSizeClasses }"
-                class="hidden md:inline-flex"
-                srText="Toggle dark mode"
-            >
-                <MoonIcon v-show="!isDark" aria-hidden="true" :class="iconSizeClasses" />
-                <SunIcon v-show="isDark" aria-hidden="true" :class="iconSizeClasses" />
-            </Button>
-
-            <Button
-                iconOnly
-                variant="secondary"
                 @click="toggleFullScreen"
                 v-slot="{ iconSizeClasses }"
                 class="hidden md:inline-flex"

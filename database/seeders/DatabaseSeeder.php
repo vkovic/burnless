@@ -29,14 +29,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'jane@prine.ch',
         ]);
 
-        Action::factory()->create([
-            'module' => 'Score',
-            'name' => 'How was your week',
-            'date' => now(),
-            'data' => [
-                'title' => 'Overall impression about past week',
-                'content' => 'Please rate your week compared to your expectations',
-            ]
-        ]);
+//        Action::factory()->create([
+//            'module' => 'Score',
+//            'name' => 'How was your week',
+//            'date' => now(),
+//            'data' => [
+//                'title' => 'Overall impression about past week',
+//                'content' => 'Please rate your week compared to your expectations',
+//            ]
+//        ]);
     }
 }

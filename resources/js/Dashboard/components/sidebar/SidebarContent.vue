@@ -19,14 +19,16 @@
                 <DocumentIcon class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
             </template>
             <SidebarCollapsibleItem
+                :to="route('dashboard.list')"
+                title="List Actions"
+            />
+            <SidebarCollapsibleItem
                 :to="route('dashboard.module', {module: 'Score'})"
-                title="Score"
-                :active="isCurrentRoute('Blank')"
+                title="Add Score Action"
             />
             <SidebarCollapsibleItem
                 :to="route('dashboard.module', {module: 'YesNo'})"
-                title="Yes/No"
-                :active="isCurrentRoute('Blank')"
+                title="Add Yes/No Action"
             />
         </SidebarCollapsible>
     </PerfrectScrollbar>
