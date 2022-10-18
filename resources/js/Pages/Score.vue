@@ -52,10 +52,11 @@ const scores: Array<string> = [
     smilieHappier
 ];
 
-const props = defineProps(['title', 'content']);
+const props = defineProps(['title', 'content', 'type']);
 
 const handle = async (score) => {
-    await axios.post(route('action.submit', {module: 'Score', type: 'dontknow', score}));
+    console.log(props);
+    await axios.post(route('action.submit', {module: 'Score', type: props.type, score}));
     show.value = false;
 };
 

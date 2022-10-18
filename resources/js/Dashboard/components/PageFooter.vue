@@ -2,12 +2,12 @@
     <footer
         class="flex flex-col flex-shrink-0 w-full gap-2 px-6 py-4 lg:flex-row lg:justify-between"
     >
-        <p class="text-sm text-gray-500 dark:text-gray-400">
+        <p class="text-sm text-gray-500">
             &#169;
             <span>{{ new Date().getFullYear() }}</span> K UI, All rights reserved
         </p>
 
-        <p class="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
+        <p class="flex items-center gap-1 text-sm text-gray-500">
             <span>Hand-crafted & Made with</span>
             <span>
                 <span class="sr-only">love</span>

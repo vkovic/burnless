@@ -11,26 +11,26 @@
                         :class="[
                             'p-0.5 block rounded-full',
                             {
-                                'bg-green-100 dark:bg-green-800': status == 'success',
-                                'bg-yellow-100 dark:bg-yellow-800': status == 'warning',
-                                'bg-red-100 dark:bg-red-800': status == 'danger',
+                                'bg-green-100': status == 'success',
+                                'bg-yellow-100': status == 'warning',
+                                'bg-red-100': status == 'danger',
                             }
                         ]"
                     >
                         <TrendingUpIcon
                             v-if="status == 'success'"
                             aria-hidden="true"
-                            class="w-4 h-4 text-green-500 dark:text-green-200"
+                            class="w-4 h-4 text-green-500"
                         />
                         <MinusIcon
                             v-if="status == 'warning'"
                             aria-hidden="true"
-                            class="w-4 h-4 text-yellow-500 dark:text-yellow-200"
+                            class="w-4 h-4 text-yellow-500"
                         />
                         <TrendingDownIcon
                             v-if="status == 'danger'"
                             aria-hidden="true"
-                            class="w-4 h-4 text-red-500 dark:text-red-200"
+                            class="w-4 h-4 text-red-500"
                         />
                     </span>
 

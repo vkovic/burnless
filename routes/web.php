@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\WebModuleController;
 use App\Models\Action;
 use App\Models\Score;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 
 /*
@@ -25,6 +26,7 @@ Route::get('/modules/web/score', function () {
     return Inertia::render('Score')->with([
         'title' => $action->data['title'],
         'content' => $action->data['content'],
+        'type' => Str::kebab($action->name)
     ]);
 });
 
@@ -40,51 +42,50 @@ Route::any('/modules/{module}/submit-action', function ($module) {
     return redirect()->route('thanks');
 })->name('action.submit');
 
+// Dashboard
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard')->with([
+        'totalUsers' => User::count(),
+        'totalActions' => Action::count(),
+        'todayUsers' => 3,
+        'todayActions' => Action::where('date', now()->format('Y-m-d'))->count(),
+    ]);
+})->name('dashboard');
 
-//// Dashboard
-//Route::get('/dashboard', function () {
-//    return Inertia::render('Dashboard')->with([
-//        'totalUsers' => User::count(),
-//        'totalActions' => Action::count(),
-//        'todayUsers' => 3,
-//        'todayActions' => Action::where('date', now()->format('Y-m-d'))->count(),
-//    ]);
-//})->name('dashboard');
-//
-//// Dashboard admin
-//Route::get('/dashboard/admin/{module}', function ($module) {
-//    return Inertia::render('Admin/' . $module);
-//})->name('dashboard.module');
-//Route::post('/dashboard/action', function () {
-//    $data = request()->all();
-//
-//    if ($data['module'] == 'Score') {
-//        Action::create([
-//            'module' => $data['module'],
-//            'name' => $data['name'],
-//            'date' => $data['date'],
-//            'data' => [
-//                'title' => $data['title'],
-//                'content' => $data['content'],
-//            ]
-//        ]);
-//    } elseif ($data['module'] == 'YesNo') {
-//        Action::create([
-//            'module' => $data['module'],
-//            'name' => $data['name'],
-//            'date' => $data['date'],
-//            'data' => [
-//                'title' => $data['title'],
-//                'content' => $data['content'],
-//                'yes' => $data['yes'],
-//                'no' => $data['no'],
-//            ]
-//        ]);
-//    }
-//
-//    return redirect()->back();
-//})->name('dashboard.action');
-//
+// Dashboard admin
+Route::get('/dashboard/admin/{module}', function ($module) {
+    return Inertia::render('Admin/' . $module);
+})->name('dashboard.module');
+
+Route::post('/dashboard/action', function () {
+    $data = request()->all();
+
+    if ($data['module'] == 'Score') {
+        Action::create([
+            'module' => $data['module'],
+            'name' => $data['name'],
+            'date' => $data['date'],
+            'data' => [
+                'title' => $data['title'],
+                'content' => $data['content'],
+            ]
+        ]);
+    } elseif ($data['module'] == 'YesNo') {
+        Action::create([
+            'module' => $data['module'],
+            'name' => $data['name'],
+            'date' => $data['date'],
+            'data' => [
+                'title' => $data['title'],
+                'content' => $data['content'],
+                'yes' => $data['yes'],
+                'no' => $data['no'],
+            ]
+        ]);
+    }
+
+    return redirect()->back();
+})->name('dashboard.action');
 
 // Pages
 Route::get('/thanks', function () {

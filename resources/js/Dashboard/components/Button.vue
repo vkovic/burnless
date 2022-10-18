@@ -81,18 +81,18 @@
     const {disabled} = toRefs(props);
 
     const baseClasses = [
-        'inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2'
+        'inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white'
     ];
 
     const variantClasses = (variant) => ({
         'bg-purple-500 text-white hover:bg-purple-600 focus:ring-purple-500': variant == 'primary',
-        'bg-white text-gray-500 hover:bg-gray-100 focus:ring-purple-500 dark:text-gray-400 dark:bg-dark-eval-1 dark:hover:bg-dark-eval-2 dark:hover:text-gray-200':
+        'bg-white text-gray-500 hover:bg-gray-100 focus:ring-purple-500':
             variant == 'secondary',
         'bg-green-500 text-white hover:bg-green-600 focus:ring-green-500': variant == 'success',
         'bg-red-500 text-white hover:bg-red-600 focus:ring-red-500': variant == 'danger',
         'bg-yellow-500 text-white hover:bg-yellow-600 focus:ring-yellow-500': variant == 'warning',
         'bg-cyan-500 text-white hover:bg-cyan-600 focus:ring-cyan-500': variant == 'info',
-        'bg-black text-gray-300 hover:text-white hover:bg-gray-800 focus:ring-black dark:hover:bg-dark-eval-3':
+        'bg-black text-gray-300 hover:text-white hover:bg-gray-800 focus:ring-black':
             variant == 'black'
     });
 
