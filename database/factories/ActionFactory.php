@@ -19,6 +19,7 @@ class ActionFactory extends Factory
         return [
             'module' => 'lorem',
             'name' => 'ipsum-dolor-sit',
+            'date' => now()->addDays(rand(-100, -3)),
             'data' => [
                 'title' => 'Amet',
                 'content' => 'Consectetur adipisicing elit',
