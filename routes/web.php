@@ -93,6 +93,6 @@ Route::post('/dashboard/action', function () {
 
 // Pages
 Route::get('/thanks', function () {
-    return view('pages.thanks');
+    return Inertia::render('Thanks');
 })->name('thanks');
 
