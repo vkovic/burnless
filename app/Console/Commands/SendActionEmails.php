@@ -14,7 +14,7 @@ class SendActionEmails extends Command
      *
      * @var string
      */
-    protected $signature = 'channel:mail:send';
+    protected $signature = 'mail:send';
 
     /**
      * The console command description.

@@ -8,7 +8,7 @@
 
 @foreach(range(1, 5) as $i)
 @php($params = ['name' => $action->name, 'score' => $i, 'module' => 'Score'])
-<x-mail::button :url="route('module.submit-action', $params)">
+<x-mail::button :url="route('action.submit', $params)">
 {{ $i }}
 </x-mail::button>
 @endforeach

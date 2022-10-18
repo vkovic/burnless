@@ -8,14 +8,14 @@
 
 {{-- No button --}}
 @php($params = ['name' => $action->name, 'score' => $action->data['no'], 'module' => 'YesNo'])
-<x-mail::button :url="route('module.submit-action', $params)">
+<x-mail::button :url="route('action.submit', $params)">
 No
 </x-mail::button>
 {{--/ No button --}}
 
 {{-- Yes button --}}
 @php($params = ['name' => $action->name, 'score' => $action->data['yes'], 'module' => 'YesNo'])
-<x-mail::button :url="route('module.submit-action', $params)">
+<x-mail::button :url="route('action.submit', $params)">
 Yes
 </x-mail::button>
 {{--/ Yes button --}}
